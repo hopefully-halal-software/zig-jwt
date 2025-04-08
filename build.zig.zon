@@ -1,7 +1,8 @@
 .{
-    .name = "jwt",
+    .name = .jwt,
+    .fingerprint = 0x8d17cdf0bd4003c9,
     .version = "0.1.0",
-    .minimum_zig_version = "0.13.0",
+    .minimum_zig_version = "0.14.0",
     .dependencies = .{
         // todo: update this to a versioned tag when this package publishes one
         .benchmark = .{

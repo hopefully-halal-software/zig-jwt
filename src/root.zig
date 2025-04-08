@@ -95,7 +95,7 @@ test "ES256.roundrip" {
     // predicable key generation
     var seed: [32]u8 = undefined;
     _ = try std.fmt.hexToBytes(seed[0..], "8052030376d47112be7f73ed7a019293dd12ad910b654455798b4667d73de166");
-    const pair = try std.crypto.sign.ecdsa.EcdsaP256Sha256.KeyPair.create(seed);
+    const pair = try std.crypto.sign.ecdsa.EcdsaP256Sha256.KeyPair.generateDeterministic(seed);
 
     const token = try encode(
         allocator,
@@ -130,7 +130,7 @@ test "ES384.roundrip" {
     // predicable key generation
     var seed: [48]u8 = undefined;
     _ = try std.fmt.hexToBytes(seed[0..], "8052030376d47112be7f73ed7a019293dd12ad910b654455798b4667d73de166");
-    const pair = try std.crypto.sign.ecdsa.EcdsaP384Sha384.KeyPair.create(seed);
+    const pair = try std.crypto.sign.ecdsa.EcdsaP384Sha384.KeyPair.generateDeterministic(seed);
 
     const token = try encode(
         allocator,
@@ -165,7 +165,7 @@ test "EdDSA.roundtrip" {
     // predicable key generation
     var seed: [32]u8 = undefined;
     _ = try std.fmt.hexToBytes(seed[0..], "8052030376d47112be7f73ed7a019293dd12ad910b654455798b4667d73de166");
-    const pair = try std.crypto.sign.Ed25519.KeyPair.create(seed);
+    const pair = try std.crypto.sign.Ed25519.KeyPair.generateDeterministic(seed);
 
     const token = try encode(
         allocator,
